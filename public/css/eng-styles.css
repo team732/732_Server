@@ -1,0 +1,587 @@
+a:hover, a:active, a:focus {
+    text-decoration: none;
+}
+
+/* App bar */
+.demo-layout .mdl-layout__header .mdl-layout__drawer-button {
+    color: white;
+}
+.mdl-layout__header {
+    box-shadow: none;
+}
+
+/* Tabbar */
+
+.mdl-tabs.tabbar {
+    background-color: white;
+}
+
+
+/* Background */
+.mdl-layout__content.mdl-color--grey-100 {
+    padding: 12px 0;
+    background-color: #eef3f5 !important; 
+}
+/* Card */
+.col-lg-1.eng-card, .col-lg-10.eng-card, .col-lg-11.eng-card, .col-lg-12.eng-card, .col-lg-2.eng-card, .col-lg-3.eng-card, .col-lg-4.eng-card, .col-lg-5.eng-card, .col-lg-6.eng-card, .col-lg-7.eng-card, .col-lg-8.eng-card, .col-lg-9.eng-card, .col-md-1.eng-card, .col-md-10.eng-card, .col-md-11.eng-card, .col-md-12.eng-card, .col-md-2.eng-card, .col-md-3.eng-card, .col-md-4.eng-card, .col-md-5.eng-card, .col-md-6.eng-card, .col-md-7.eng-card, .col-md-8.eng-card, .col-md-9.eng-card, .col-sm-1.eng-card, .col-sm-10.eng-card, .col-sm-11.eng-card, .col-sm-12.eng-card, .col-sm-2.eng-card, .col-sm-3.eng-card, .col-sm-4.eng-card, .col-sm-5.eng-card, .col-sm-6.eng-card, .col-sm-7.eng-card, .col-sm-8.eng-card, .col-sm-9.eng-card, .col-xs-1.eng-card, .col-xs-10.eng-card, .col-xs-11.eng-card, .col-xs-12.eng-card, .col-xs-2.eng-card, .col-xs-3.eng-card, .col-xs-4.eng-card, .col-xs-5.eng-card, .col-xs-6.eng-card, .col-xs-7.eng-card, .col-xs-8.eng-card, .col-xs-9.eng-card {
+    padding: 0;
+}
+
+
+.eng-card >.bg {
+    background: white;
+    margin: 8px;
+    min-height: 24px;
+}
+
+.eng-card > a >.bg.touchable {
+    color: #444;
+    background: white;
+    margin: 8px;
+    min-height: 100px;
+}
+
+.eng-card >a>.bg.touchable:hover, .eng-card >a>.bg.touchable:focus {
+    -webkit-box-shadow: 0px 10px 20px -4px rgba(0,0,0,0.29);
+    -moz-box-shadow: 0px 10px 20px -4px rgba(0,0,0,0.29);
+    box-shadow: 0px 10px 20px -4px rgba(0,0,0,0.29);
+    margin-top: 4px;
+    margin-bottom: 12px;
+    text-decoration: none;
+}
+.eng-card >a>.bg.touchable:active {
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none;
+    margin-top: 8px;
+    margin-bottom: 8px;
+    text-decoration: none;
+}
+
+.container-fluid.eng {
+    padding: 0 12px;
+}
+
+.container-fluid.eng > .row {
+    margin:0;
+}
+
+
+.row.oneColumn > .eng-card {
+    float: none;
+    margin:16px auto;
+    max-width: 800px;
+
+}
+
+
+/* Card Header */
+.card-header {
+    padding: 24px;
+    position: relative;
+}
+
+.card-edit {
+    display: inline;
+    position: absolute;
+    right: -24px;
+    margin-right: 30px;
+    top: 8px;
+    z-index: 10;
+}
+h5.info-date {
+    margin-top: 0;
+    color: #888;
+    font-size: 1em;
+    margin: 4px 0;
+}
+h4.group-name {
+    margin-top: 0; 
+    font-weight: bold;
+    font-size: 1.2em;
+    margin-bottom: 0
+}
+
+.info{
+    margin-top: 0;    
+}
+
+h3.info {
+    font-size: 2em;
+}
+span.info{
+    display: block;
+    margin: 0;
+    padding-bottom: 24px;
+    font-weight: normal;
+    color: #bbb;
+    font-size: 0.8em;
+    text-align: right;
+}
+
+
+
+/* Card Body */
+.card-body{
+    padding: 1px 24px;
+    font-size: 1.1em;
+}
+.card-body > p{
+    font-size: 1.1em;
+    line-height: 1.6em;
+}
+
+
+.exam button {
+    margin-top: 12px;
+    margin-bottom: 24px;
+}
+
+.card-body.paragraph {
+    padding: 0 24px;
+}
+/*
+.card-body.paragraph .paragraph-link {
+    padding: 16px; 
+    background-color: #f8f8f8;
+    color: #444;
+    margin-left: -20px;
+    margin-right: -20px;
+}
+*/
+.card-body.paragraph .paragraph-link {
+    display: block;
+    padding: 16px; 
+    color: #444;
+    margin-bottom: 8px;
+    border:1px solid #c1e0d1;
+    border-radius: 4px 4px 4px 4px;
+    -moz-border-radius: 4px 4px 4px 4px;
+    -webkit-border-radius: 4px 4px 4px 4px;
+    position: relative;
+}
+.card-body.paragraph .paragraph-link:hover,
+.card-body.paragraph .paragraph-link:focus, 
+.card-body.paragraph .paragraph-link:active {
+    border-radius: 0 0 0 0;
+    -moz-border-radius: 0 0 0 0;
+    -webkit-border-radius: 0 0 0 0;
+    margin-bottom: 10px;
+    margin-top: -2px;
+    border: none;
+     -webkit-box-shadow: 0px 10px 20px -4px rgba(0,0,0,0.29);
+    -moz-box-shadow: 0px 10px 20px -4px rgba(0,0,0,0.29);
+    box-shadow: 0px 10px 20px -4px rgba(0,0,0,0.29);   
+}
+.card-body.paragraph .paragraph-link small {
+    display: block;
+}
+.card-body.paragraph .paragraph-link.done {
+    background-color: rgba(141, 214, 150, 0.27);
+    border: none;
+    color: #888;
+}
+.card-body.paragraph .paragraph-link.done:after {
+    content:" ✓ ";
+    color: #17b469;
+    border-radius: 16px 16px 16px 16px;
+    -moz-border-radius: 16px 16px 16px 16px;
+    -webkit-border-radius: 16px 16px 16px 16px;
+    position: absolute;
+    right:8px;
+    top: 8px;
+}
+.bg.done .card-body.paragraph .paragraph-link{
+    color: #bbb;
+}
+.bg.done .card-body.paragraph .paragraph-link.done{
+    color: #888;
+}
+
+.eng-card > a > .bg.expired, .eng-card > .bg.expired  {
+    color: #bbb;
+}
+
+.eng-card > a > .bg.expired h5.info-date:after, 
+.eng-card > .bg.expired h5.info-date:after  {
+    content: " : Expired";
+    display: inline;
+}
+
+
+.eng-card > a > .bg.expired:hover,
+.eng-card > a > .bg.expired:focus, 
+.eng-card > a > .bg.expired:active {
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none;
+    margin:8px;
+}
+
+
+.eng-card > a > .bg.expired.done h5.info-date:before, 
+.eng-card > .bg.expired.done h5.info-date:before,
+.eng-card > a > .bg.done h5.info-date:before, 
+.eng-card > .bg.done h5.info-date:before  {
+    content:" ✓ DONE ";
+    display: inline-block;
+    color: #17b469;
+    font-size: 0.8em;
+    padding: 4px 8px;
+    margin-top: -4px;
+    margin-right: 8px;
+    border-radius: 12px 12px 12px 12px;
+    -moz-border-radius: 12px 12px 12px 12px;
+    -webkit-border-radius: 12px 12px 12px 12px;
+    border: 1px solid #17b469;
+}
+
+.bg.expired.notyet > .card-body, 
+.bg.notyet > .card-body {
+    color: #555;
+}
+
+.eng-card > a > .bg.expired h5.info-date:before, 
+.eng-card > .bg.expired h5.info-date:before  {
+    content:"  ";
+    display: inline-block;
+    color: #bd8484;
+    font-size: 0.8em;
+    padding: 4px 8px;
+    margin-top: -4px;
+    margin-right: 8px;
+    border-radius: 12px 12px 12px 12px;
+    -moz-border-radius: 12px 12px 12px 12px;
+    -webkit-border-radius: 12px 12px 12px 12px;
+    border: 1px solid #bd8484;
+}
+/* image inside eng-card */
+.eng-card .card-body.image {
+    width: 100%;
+    height:1px;
+    padding: 0;
+    padding-bottom: 60%;
+    margin-bottom: 24px;
+    overflow: hidden;
+}
+.eng-card .card-body.image img {
+    width: 100%;
+}
+
+
+
+/* Custom Modal */
+.modal-content.eng {
+    border: none;
+    border-radius: 2px 2px 2px 2px;
+    -moz-border-radius: 2px 2px 2px 2px;
+    -webkit-border-radius: 2px 2px 2px 2px;
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none;
+}
+
+.eng > .modal-footer > button {
+    margin: 0;
+}
+
+
+/*----------------------
+Exam page
+----------------------*/
+
+.mdl-layout__content.exam {
+    background-color: white;
+}
+
+.page-header-card .bg{
+    background: none;
+}
+.page-header-card .card-header {
+    text-align: leftr;
+}
+.page-header-card .card-header h4 {
+    margin:12px 0;
+}
+.exam .page-footer {
+    text-align: leftr;
+    margin-top: 36px;
+}
+.card-header .mdl-tabs {
+    margin-top: 24px;
+}
+.exam .page-footer .mdl-button {
+    color: #888;
+}
+
+.exam .question {
+    padding: 32px 32px 16px 32px;
+}
+
+.exam .question h4 {
+    margin: 0;
+}
+.exam .card-header h5{
+    margin: 0;
+}
+
+.question > h5 {
+    font-size: 1.2em;
+}
+
+.examples {
+    margin: 1px 32px; 
+    border-top: 1px solid #dedede;
+    padding: 32px 0;
+}
+
+.examples form label.mdl-radio {
+    display: block;
+    font-weight: normal;
+}
+
+.page-header .pull-left, .page-footer .pull-left {
+    margin-left: 8px;
+}
+.page-header .pull-right, .page-footer .pull-right {
+    margin-right: 8px;
+}
+
+
+/* Exam Result */
+
+@media (max-width: 700px) { 
+    .exam .mdl-tabs__tab{
+        font-size: 12px;
+        padding: 0 8px;
+    }
+}
+.question.correct {
+    background-color: #c4eac4;
+}
+
+.question.incorrect {
+    background-color: #efcbcb;
+}
+
+.result .examples {
+    border-top: none;
+}
+
+.result .examples label.right-answer {
+    font-weight: bold;
+} 
+.result .examples label.right-answer:after {
+    content: " : 정답";
+    color: #a0cea0;
+} 
+
+/*----------------------
+Paragraph page
+----------------------*/
+.paragraph .card-body.text {
+    padding-bottom: 24px;
+    font-size: 1.2em;
+}
+.paragraph .card-body.text span{
+    display: inline-block;
+}
+.paragraph .card-body.text span.word {
+    padding: 3px 0;
+    margin: 0;
+}
+.paragraph .card-body.text span.word:hover,
+.paragraph .card-body.text span.word:focus  {
+    background-color: #efefef;
+    border-radius: 2px 2px 2px 2px;
+    -moz-border-radius: 2px 2px 2px 2px;
+    -webkit-border-radius: 2px 2px 2px 2px;
+}
+.paragraph .card-body.text span.word:active, 
+.paragraph .card-body.text span.word.pressed {
+    background-color: #17b469;
+    color:white;
+    border-radius: 2px 2px 2px 2px;
+    -moz-border-radius: 2px 2px 2px 2px;
+    -webkit-border-radius: 2px 2px 2px 2px;
+}
+
+.paragraph .card-body.text span.blank {
+    padding: 3px 3px;
+    margin: 0;
+}
+.paragraph .card-body.text span.punctuation {
+    padding: 3px 0;
+}
+
+.paragraph-word h4 {
+    margin:0;
+}
+
+.paragraph-word .meaning {
+    position: relative;
+    padding-bottom: 24px;
+}
+.paragraph-word .meaning span{
+    font-size: 1.2em;
+    margin-left: 40px;
+    display: block;
+    padding: 8px 16px;
+    line-height: 1.4em;
+    position: relative;
+}
+
+.paragraph-word .meaning span.noun:before{
+    font-size: 1em;
+    content: "n";
+    position: absolute;
+    color: #17b469;
+    left: -40px;
+}
+.paragraph-word .meaning span.pronoun:before{
+    font-size: 1em;
+    content: "pronoun";
+    position: absolute;
+    color: #17b469;
+    left: -40px;
+}
+.paragraph-word .meaning span.verb:before{
+    font-size: 1em;
+    content: "v";
+    position: absolute;
+    color: #17b469;
+    left: -40px;
+}
+.paragraph-word .meaning span.adjective:before{
+    font-size: 1em;
+    content: "adj";
+    position: absolute;
+    color: #17b469;
+    left: -40px;
+}
+.paragraph-word .meaning span.adverb:before{
+    font-size: 1em;
+    content: "ad";
+    position: absolute;
+    color: #17b469;
+    left: -40px;
+}
+.paragraph-word .meaning span.proposition:before{
+    font-size: 1em;
+    content: "proposition";
+    position: absolute;
+    color: #17b469;
+    left: -40px;
+}
+.paragraph-word .meaning span.conjunction:before{
+    font-size: 1em;
+    content: "conjunction";
+    position: absolute;
+    color: #17b469;
+    left: -40px;
+}
+.paragraph-word .meaning span.interjection:before{
+    font-size: 1em;
+    content: "interjection";
+    position: absolute;
+    color: #17b469;
+    left: -40px;
+}
+
+
+.paragraph-word .meaning span.noun.using,
+.paragraph-word .meaning span.pronoun.using,
+.paragraph-word .meaning span.verb.using,
+.paragraph-word .meaning span.adjective.using,
+.paragraph-word .meaning span.adverb.using,
+.paragraph-word .meaning span.proposition.using,
+.paragraph-word .meaning span.conjunction.using,
+.paragraph-word .meaning span.interjection.using{
+    background-color: #efefef;
+    border-radius: 4px 4px 4px 4px;
+    -moz-border-radius: 4px 4px 4px 4px;
+    -webkit-border-radius: 4px 4px 4px 4px;
+    position: relative;
+    margin-top: 24px;
+}
+
+.paragraph-word .meaning span.noun.using:after,
+.paragraph-word .meaning span.pronoun.using:after,
+.paragraph-word .meaning span.verb.using:after,
+.paragraph-word .meaning span.adjective.using:after,
+.paragraph-word .meaning span.adverb.using:after,
+.paragraph-word .meaning span.proposition.using:after,
+.paragraph-word .meaning span.conjunction.using:after,
+.paragraph-word .meaning span.interjection.using:after{
+    content: "현재 사용된 의미";  
+    color: #17b469;
+    font-size: 0.6em;
+    position: absolute;
+    left: 0px ;
+    top: -16px;
+    padding: 1px 8px;
+    background-color: #efefef;
+    border-radius: 8px 8px 8px 8px;
+    -moz-border-radius: 8px 8px 8px 8px;
+    -webkit-border-radius: 8px 8px 8px 8px;
+}
+
+/*----------------------
+Login page
+----------------------*/
+.login.mdl-layout__content.mdl-color--grey-100 {
+    background-color: #17b469 !important;
+    text-align: center;
+}
+
+.row.oneColumn > .eng-card.login {
+    margin-top: 150px;
+    text-align: leftr;
+}
+
+.login .mdl-textfield {
+    padding: 25px 0;
+    width: 100%;
+    display: block;
+}
+.login .mdl-button {
+    margin-bottom: 28px;
+    text-align: left
+}
+
+.login .card-body{
+    padding-top: 40px;
+}
+
+/*----------------------
+Sign up page
+----------------------*/
+.signup.mdl-layout__content.mdl-color--grey-100 {
+    background-color: #17b469 !important;
+    text-align: center;
+}
+
+.row.oneColumn > .eng-card.signup {
+    margin-top: 150px;
+    text-align: leftr;
+}
+
+.signup .mdl-textfield {
+    padding: 25px 0;
+    width: 100%;
+    display: block;
+}
+.signup .mdl-button {
+    margin-bottom: 28px;
+    text-align: left
+}
+
+.signup .card-body{
+    padding-top: 40px;
+}
+
+
+/*----------------------
+Admin page
+----------------------*/
+

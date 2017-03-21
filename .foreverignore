@@ -1,0 +1,6 @@
+*.log
+**/.git/**
+**/upload/**
+**/backup/**
+**/public/**
+**/node_modules/**

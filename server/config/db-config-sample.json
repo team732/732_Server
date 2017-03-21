@@ -1,0 +1,10 @@
+{
+    "host"                 : "hostURL",
+    "port"                 : "port",
+    "user"                 : "userName",
+    "password"             : "password",
+    "database"             : "databaseName",
+    "multipleStatements"   : "multipleQueryEnable",
+    "connectionLimit"      : "connectionLimit",
+    "waitForConnections"   : "waitForConnections"
+}
