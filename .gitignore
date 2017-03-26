@@ -50,3 +50,6 @@ cert/
 
 #db-config
 db-config.json
+
+#aws-config
+aws-config.json
