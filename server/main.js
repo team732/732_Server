@@ -533,7 +533,7 @@ let afternoon = schedule.scheduleJob('32 13 * * *', () => {
                 let tokens = _.pluck(tokenResult, "gcm_token");
                 let mission = JSON.parse(missionResult[0].mission);
 
-                sendFCM( mission.text, `나른한 오후, 사진 한장의 여유 어떠세요?😉`, {}, tokens );
+                sendFCM( mission.text.replace(/\s/g, " "), `나른한 오후, 사진 한장의 여유 어떠세요?😉`, {}, tokens );
             });
         });
     });
@@ -560,7 +560,7 @@ let night = schedule.scheduleJob('32 19 * * *', () => {
                 let tokens = _.pluck(tokenResult, "gcm_token");
                 let mission = JSON.parse(missionResult[0].mission);
 
-                sendFCM( mission.text, `오늘의 잠상, 만나는 봤나?🤔🤔`, {}, tokens );
+                sendFCM( mission.text.replace(/\s/g, " "), `오늘의 잠상, 만나는 봤나?🤔🤔`, {}, tokens );
             });
         });
     });

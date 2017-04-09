@@ -463,18 +463,20 @@ router.post('/:contentId/replies', (req, res) => {
         return res.status(400).json(resultArray.toCamelCase(INVALID_REQUEST));
     }
 
-    if ( 140 < reply.trim().length || reply.trim().length < 1 ) {
+    if ( 140 < stringLength(reply.trim()) || stringLength(reply.trim()) < 1 ) {
         return res.status(400).json(resultArray.toCamelCase(INVALID_REQUEST));
     }
 
     dbConnect(res).then((connection) => {
         query(connection, res,
-           `SELECT content_id, mission_id, user_id
-            FROM content_tbl
-            WHERE content_id = ?
-            AND deleted_at IS NULL
-            AND is_public IS TRUE
-            AND is_banned IS FALSE;`, [contentId])
+           `SELECT t1.content_id, t1.mission_id, t1.user_id, DATE_FORMAT(t2.mission_date, "%c월 %e일") AS mission_date
+            FROM content_tbl AS t1
+            INNER JOIN mission_tbl AS t2
+            ON t1.mission_id = t2.mission_id
+            WHERE t1.content_id = ?
+            AND t1.deleted_at IS NULL
+            AND t1.is_public IS TRUE
+            AND t1.is_banned IS FALSE;`, [contentId])
         .then((result) => {
             if (result.length === 0) {
                 connection.release();
@@ -515,15 +517,15 @@ router.post('/:contentId/replies', (req, res) => {
                                         let tokens = _.pluck(receiverResult, "gcm_token");
                                         let contentAuthorId = result[0].user_id;
                                         delete(result[0].user_id)
-                                        let isSuccess = sendFCM( `${senderResult[0].nickname}님이 회원님의 사진에 댓글을 남겼습니다.`, reply, result[0], tokens );
+                                        let isSuccess = sendFCM( `${result[0].mission_date} 회원님의 사진에 새로운 댓글이 있습니다.`, `[${senderResult[0].nickname}님의 댓글] ${reply}`, result[0], tokens );
 
                                         // console.log(wwwwww);
 
                                         if ( Number(isSuccess) === 1 ) { // 푸시 보내기 성공
                                         // 푸시 로그 남겨야함
                                             let pushContent = {
-                                                title: `${senderResult[0].nickname}님이 회원님의 사진에 댓글을 남겼습니다.`,
-                                                body: reply,
+                                                title: `${result[0].mission_date} 회원님의 사진에 새로운 댓글이 있습니다.`,
+                                                body: `[${senderResult[0].nickname}님의 댓글] ${reply}`,
                                                 data: result[0]
                                             }
                                             return query(connection, res,
@@ -562,7 +564,7 @@ router.put('/:contentId/replies/:replyId', (req, res) => {
         return res.status(400).json(resultArray.toCamelCase(INVALID_REQUEST));
     }
 
-    if ( 140 < reply.trim().length || reply.trim().length < 1 ) {
+    if ( 140 < stringLength(reply.trim()) || stringLength(reply.trim()) < 1 ) {
         return res.status(400).json(resultArray.toCamelCase(INVALID_REQUEST));
     }
 

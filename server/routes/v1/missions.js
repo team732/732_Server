@@ -2,6 +2,7 @@ import express from 'express';
 import multiparty from 'multiparty';
 import _ from 'underscore';
 import dateFormat from 'dateformat';
+import stringLength from 'string-length';
 import { DB_ERROR, NO_DATA, SUCCESS, INVALID_REQUEST, SERVER_ERROR, EMAIL_REGEXP, PASSWORD_REGEXP, IS_MY_ID, query, dbConnect, resultArray, isSet, putObjectToS3 } from '../../utils';
 
 const router = express.Router();
@@ -28,7 +29,7 @@ router.post('/:missionId/contents', (req, res) => {
             return res.status(400).json(resultArray.toCamelCase(INVALID_REQUEST));
         }
 
-        if ( text !== "" && (140 < text.trim().length || text.trim().length < 1) ) {
+        if ( text !== "" && (140 < stringLength(text.trim()) || stringLength(text.trim()) < 1) ) {
             return res.status(400).json(resultArray.toCamelCase(INVALID_REQUEST));
         }
 

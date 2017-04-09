@@ -1,6 +1,7 @@
 import express from 'express';
 import bcrypt from 'bcrypt';
 import jwt from 'jsonwebtoken';
+import stringLength from 'string-length';
 import { TOKEN_KEY, SALT_ROUNDS } from '../../main';
 import { DB_ERROR, NO_DATA, SUCCESS, INVALID_REQUEST, EMAIL_REGEXP, PASSWORD_REGEXP, LOGIN_ID_REGEXP, IS_MY_ID, query, dbConnect, resultArray, LOGIN_EXPIRY_TIME } from '../../utils';
 
@@ -38,7 +39,7 @@ router.post('/', (req, res) => {
         );
     }
 
-    if ( 0 > nickname.length || nickname.length > 12 ) {
+    if ( 0 > stringLength(nickname) || stringLength(nickname) > 12 ) {
         return res.status(400).json(
             resultArray.toCamelCase(
                 {
@@ -315,7 +316,7 @@ router.put('/:userId/nickname', (req, res) => {
     let id = req.authorizationId;
     let nickname = req.body.nickname;
 
-    if ( nickname === undefined || 0 > nickname.length || nickname.length > 12 ) {
+    if ( nickname === undefined || 0 > stringLength(nickname) || stringLength(nickname) > 12 ) {
         return res.status(400).json(resultArray.toCamelCase(INVALID_REQUEST));
     }
 
