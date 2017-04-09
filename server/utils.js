@@ -44,13 +44,21 @@ export const sendFCM = ( title, body, data, registrationIds ) => {
         data: data
     };
 
+    let isSuccess = 1;
+
     Promise.each(registraionIdsSplitArr, (registraionIdsArr, key) => {
         message.registration_ids = registraionIdsArr;
         // console.log(message);
         return sendFCMPromise(message).then((result) => {
             console.log(result);
+            isSuccess *= 1;
+        }).catch((err) => {
+            console.log(err);
+            isSuccess *= 0;
         });
     });
+
+    return isSuccess;
 
     // fcm.send(message, (err, response) => {
     //     if ( err ) {

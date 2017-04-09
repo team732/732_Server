@@ -192,8 +192,8 @@ router.get('/:contentId', (req, res) => {
                 .then((replyResult) => {
                     query(connection, res,
                        `UPDATE content_tbl
-                       SET view_count = view_count + 1
-                       WHERE content_id = ?`, [contentId]) // view count 증가
+                        SET view_count = view_count + 1
+                        WHERE content_id = ?`, [contentId]) // view count 증가
                     .then((countResult) => {
                         if( Number(userId) === Number(selectResult[0].user_id) ) {
                             selectResult[0].isMine = true;
@@ -513,11 +513,28 @@ router.post('/:contentId/replies', (req, res) => {
                                         return true;
                                     } else { // 푸시보낸다.
                                         let tokens = _.pluck(receiverResult, "gcm_token");
+                                        let contentAuthorId = result[0].user_id;
                                         delete(result[0].user_id)
-                                        sendFCM( `${senderResult[0].nickname}님이 회원님의 사진에 댓글을 남겼습니다.`, reply, result[0], tokens );
+                                        let isSuccess = sendFCM( `${senderResult[0].nickname}님이 회원님의 사진에 댓글을 남겼습니다.`, reply, result[0], tokens );
 
+                                        // console.log(wwwwww);
+
+                                        if ( Number(isSuccess) === 1 ) { // 푸시 보내기 성공
                                         // 푸시 로그 남겨야함
-                                        return true;
+                                            let pushContent = {
+                                                title: `${senderResult[0].nickname}님이 회원님의 사진에 댓글을 남겼습니다.`,
+                                                body: reply,
+                                                data: result[0]
+                                            }
+                                            return query(connection, res,
+                                               `INSERT INTO user_push_log_tbl(user_id, push_type, push_content)
+                                                VALUES(?, ?, ?)`, [contentAuthorId, 1, JSON.stringify(pushContent)] // 푸시 로그 입력
+                                            ).then((pushLogInsertResult) => {
+                                                return true;
+                                            });
+                                        } else { // 푸시 보내기 실패
+                                            return true;
+                                        }
                                     }
                                 });
                             }
