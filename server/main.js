@@ -506,7 +506,7 @@ let morning = schedule.scheduleJob('32 7 * * *', () => {
                 let tokens = _.pluck(tokenResult, "gcm_token");
                 let mission = JSON.parse(missionResult[0].mission);
 
-                sendFCM( mission.text, `오늘의 잠상을 당신의 시선으로 표현해주세요🤗`, {}, tokens );
+                sendFCM( mission.text.replace(/\s/g, " "), `오늘의 잠상을 당신의 시선으로 표현해주세요🤗`, {}, tokens );
             });
         });
     });
