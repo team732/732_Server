@@ -451,6 +451,44 @@ router.post('/:contentId/like', (req, res) => {
     });
 });
 
+// 게시글 좋아요한 사용자 목록
+router.get('/:contentId/like', (req, res) => {
+    let id = req.authorizationId;
+    let contentId = req.params.contentId;
+
+    dbConnect(res).then((connection) => {
+        query(connection, res,
+           `SELECT u1.user_id, u2.nickname
+            FROM (
+                SELECT t2.user_id
+                FROM content_tbl AS t1
+                INNER JOIN content_like_tbl AS t2
+                ON t1.content_id = t2.content_id
+                WHERE t1.content_id = ?
+                AND t1.deleted_at IS NULL
+                AND t1.is_banned IS FALSE
+                AND t2.like IS TRUE ) AS u1
+            INNER JOIN user_tbl AS u2
+            ON u1.user_id = u2.user_id`
+        , [contentId]).then((result) => {
+            connection.release();
+            if (result.length === 0) {
+                return res.status(400).json(resultArray.toCamelCase(INVALID_REQUEST));
+            }
+
+            return res.status(200).json(
+                resultArray.toCamelCase(
+                    SUCCESS,
+                    {
+                        likeUsersCount : result.length,
+                        likeUsers: result
+                    }
+                )
+            );
+        });
+    });
+});
+
 // 댓글 달기
 router.post('/:contentId/replies', (req, res) => {
     let id = req.authorizationId;

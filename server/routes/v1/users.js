@@ -816,6 +816,69 @@ router.get('/:userId/contents/:contentId', (req, res) => {
 });
 
 
+// 받아보기 목록에 추가, 제거
+router.post('/:userId/followers', (req, res) => {
+    let userId = req.authorizationId;
+
+    let followUserId = req.body.followUserId; // 내가 게시글을 받아볼 사용자의 ID
+
+    if ( Number(userId) === Number(followUserId) ) { // 나 자신을 팔로우 하려 할 때
+        return res.status(400).json(resultArray.toCamelCase(INVALID_REQUEST));
+    }
+
+    dbConnect(res).then((connection) => {
+        query(connection, res,
+           `SELECT user_id
+            FROM user_tbl
+            WHERE user_id = ?
+            AND deleted_at IS NULL`, [followUserId]
+        ).then((followSearchResult) => {
+            if (followSearchResult.length === 0) { // 탈퇴했거나 존재하지 않는 사용자
+                connection.release();
+                return res.status(400).json(resultArray.toCamelCase(INVALID_REQUEST));
+            }
+            query(connection, res,
+               `INSERT INTO user_follow_tbl(user_id, follow_user_id)
+                VALUES(?, ?)
+                ON DUPLICATE KEY UPDATE is_followed = NOT is_followed;`,
+                [userId, followUserId]
+            ).then((followResult) => {
+                connection.release();
+                return res.status(200).json(resultArray.toCamelCase(SUCCESS));
+            });
+        });
+    });
+
+});
+
+// 내가 받아보는 사람 목록
+router.get('/:userId/followers', (req, res) => {
+    let userId = req.authorizationId;
+
+    dbConnect(res).then((connection) => {
+        query(connection, res,
+           `SELECT t1.follow_user_id, t2.nickname
+            FROM user_follow_tbl AS t1
+            INNER JOIN user_tbl AS t2
+            ON t1.follow_user_id = t2.user_id
+            WHERE t1.user_id = ?
+            AND t1.is_followed IS TRUE
+            AND t2.deleted_at IS NULL`, [userId]
+        ).then((result) => {
+            connection.release();
+            return res.status(200).json(
+                resultArray.toCamelCase(
+                    SUCCESS,
+                    {
+                        followersCount: result.length,
+                        followers: result
+                    }
+                )
+            );
+        });
+    });
+});
+
 // // 유저 미션 수행 여부
 // router.get('/:userId/missions/:missionId', (req, res) => {
 
